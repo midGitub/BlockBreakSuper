@@ -1,0 +1,3 @@
+<eventBroke className="framework.ui.binder.eventBroke">
+	<prop name="eventName" tips="字符串" type="string"/>
+</eventBroke>

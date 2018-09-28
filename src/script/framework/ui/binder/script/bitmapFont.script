@@ -1,0 +1,4 @@
+<bitmapFont className="framework.ui.binder.bitmapFont">
+	<prop name="fontPath" tips="字符串" type="string"/>
+	<prop name="letterSpacing" tips="数字" type="number"/>
+</bitmapFont>

@@ -2,14 +2,26 @@
 import View=Laya.View;
 import Dialog=Laya.Dialog;
 import Scene=Laya.Scene;
-export module ui.test {
-    export class TestSceneUI extends Scene {
-		public scoreLbl:Laya.Label;
-		public tipLbll:Laya.Label;
+export module ui.scene {
+    export class GameSceneUI extends Scene {
         constructor(){ super()}
         createChildren():void {
             super.createChildren();
-            this.loadScene("test/TestScene");
+            this.loadScene("scene/GameScene");
         }
     }
-}
+    export class LaunchSceneUI extends Scene {
+        constructor(){ super()}
+        createChildren():void {
+            super.createChildren();
+            this.loadScene("scene/LaunchScene");
+        }
+    }
+    export class MainMenuSceneUI extends Scene {
+        constructor(){ super()}
+        createChildren():void {
+            super.createChildren();
+            this.loadScene("scene/MainMenuScene");
+        }
+    }
+}

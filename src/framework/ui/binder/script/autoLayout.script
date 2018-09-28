@@ -1,6 +1,0 @@
-<uiLoader className="framework.ui.binder.autoLayout">
-	<prop name="left" tips="数字" type="number"/>
-	<prop name="right" tips="数字" type="number"/>
-	<prop name="top" tips="数字" type="number"/>
-	<prop name="bottom" tips="数字" type="number"/>
-</uiLoader>

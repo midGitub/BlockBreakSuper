@@ -1,4 +1,0 @@
-<uiLoader className="framework.ui.binder.uiLoader">
-	<prop name="viewName" tips="字符串" type="string"/>
-	<prop name="params" tips="字符串" type="string"/>
-</uiLoader>

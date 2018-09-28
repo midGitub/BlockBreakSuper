@@ -1,0 +1,6 @@
+<uiBinder className="framework.ui.binder.uiBinder">
+	<prop name="dataName" tips="字符串" type="string"/>
+	<prop name="animationType" tips="下拉框类型" type="option" option="none,increase"/>
+	<prop name="formatType" tips="下拉框类型" type="option" option="0, 1, 2, 3"/>
+	<prop name="formatStr" tips="字符串" type="string"/>
+</uiBinder>

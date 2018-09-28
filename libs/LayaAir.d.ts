@@ -1289,6 +1289,13 @@ declare module laya.webgl.resource {
         static releaseRT(rt: RenderTexture2D): void;
     }
 }
+
+declare interface ImageData {
+    data: Uint8ClampedArray;
+    readonly height: number;
+    readonly width: number;
+}
+
 declare module laya.webgl.resource {
     class ICharRender {
         getWidth(str: string): number;
@@ -17368,7 +17375,7 @@ declare module laya.net {
         /**worker.js的路径 */
         static workerPath: string;
         /**使用的Worker对象。*/
-        worker: Worker;
+        worker: any;
         protected _useWorkerLoader: boolean;
         constructor();
         /**

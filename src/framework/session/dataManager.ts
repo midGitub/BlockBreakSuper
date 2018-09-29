@@ -1,7 +1,8 @@
 import type from "../util/type";
 import format, { formatType } from "../util/format";
 import Map from "../util/Map";
-import { datas } from "../data/dataDefine";
+import {datas} from "../data/dataDefine"
+import {} from "../data/loginDataDefine"
 
 export interface dataEventHandler {
     (data: dataInfo): void;

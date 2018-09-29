@@ -1,4 +1,4 @@
-module datas.login {
+export module datas.login {
 	export var gameId = "login.gameId";
 	export var gameServer = "login.gameServer";
 	export var authUrl = "login.authUrl";

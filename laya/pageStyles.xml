@@ -1,6 +1,0 @@
-<page>
-   <item name="test/TestScene.scene" props="" ifExport="分离模式" aName=""/>
-   <item name="scene/LaunchScene.scene" props="" ifExport="分离模式" aName=""/>
-   <item name="scene/MainMenuScene.scene" props="" ifExport="分离模式" aName=""/>
-   <item name="scene/GameScene.scene" props="" ifExport="分离模式" aName=""/>
-</page>

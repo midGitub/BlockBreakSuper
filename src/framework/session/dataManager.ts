@@ -1,5 +1,7 @@
 import type from "../util/type";
 import format, { formatType } from "../util/format";
+import Map from "../util/Map";
+import { datas } from "../data/dataDefine";
 
 export interface dataEventHandler {
     (data: dataInfo): void;
@@ -10,7 +12,7 @@ export class dataInfo {
     public lastValue: any = null;
     public getter: () => any = null;
     public setter: (data: any) => void = null;
-    public handlers = null;//new Map<any, dataEventHandler>();
+    public handlers = new Map<any, dataEventHandler>();
 
     constructor() {
         this._value = null;
@@ -66,7 +68,7 @@ export class dataManager {
         return dataManager.instanceObj;
     }
 
-    private dataInfos = null;//new Map<string, dataInfo>();
+    private dataInfos = new Map<string, dataInfo>();
 
     public initialize() {
         this.reset();
@@ -85,7 +87,7 @@ export class dataManager {
                 }
             }
         }
-        //findProps(datas);
+        findProps(datas);
     }
 
     public addDataHandler(dataName: string, instance: any, handler: dataEventHandler, callHandler: boolean = true) {

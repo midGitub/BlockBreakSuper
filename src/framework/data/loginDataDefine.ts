@@ -1,10 +1,12 @@
-export module datas.login {
-	export var gameId = "login.gameId";
-	export var gameServer = "login.gameServer";
-	export var authUrl = "login.authUrl";
-	export var userChannel = "login.userChannel";
-	export var account = "login.account";
-	export var password = "login.password";
-	export var accessToken = "login.accessToken";
-	export var identityToken = "login.identityToken";
+export module datas {
+	export class login {
+		public static gameId = "login.gameId";
+		public static gameServer = "login.gameServer";
+		public static authUrl = "login.authUrl";
+		public static userChannel = "login.userChannel";
+		public static account = "login.account";
+		public static password = "login.password";
+		public static accessToken = "login.accessToken";
+		public static identityToken = "login.identityToken";
+	}
 }

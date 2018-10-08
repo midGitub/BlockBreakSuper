@@ -1,8 +1,6 @@
 import type from "../util/type";
 import format, { formatType } from "../util/format";
 import Map from "../util/Map";
-import {datas} from "../data/dataDefine"
-import {} from "../data/loginDataDefine"
 
 export interface dataEventHandler {
     (data: dataInfo): void;
@@ -76,31 +74,19 @@ export class dataManager {
     }
 
     public reset() {
-        var self = this;
-        var findProps = function (obj) {
-            for (var prop in obj) {
-                if (obj.hasOwnProperty(prop)) {
-                    if (type.isString(obj[prop])) {
-                        self.dataInfos.set(obj[prop], new dataInfo());
-                    } else if (type.isObject(obj[prop])) {
-                        findProps(obj[prop]);
-                    }
-                }
-            }
-        }
-        findProps(datas);
+        this.dataInfos = new Map<string, dataInfo>();
     }
 
     public addDataHandler(dataName: string, instance: any, handler: dataEventHandler, callHandler: boolean = true) {
-        if (this.dataInfos.has(dataName)) {
-            var info = this.dataInfos.get(dataName);
-            info.handlers.set(instance, handler);
-            if (callHandler === true) {
-                info.handlers.get(instance).call(instance, info);
-            }
-            return info;
+        if (!this.dataInfos.has(dataName)) {
+            this.dataInfos.set(dataName, new dataInfo());
         }
-        return null;
+        var info = this.dataInfos.get(dataName);
+        info.handlers.set(instance, handler);
+        if (callHandler === true) {
+            info.handlers.get(instance).call(instance, info);
+        }
+        return info;
     }
 
     public ramoveDataHandler(dataName: string, instance: any) {
@@ -127,37 +113,41 @@ export class dataManager {
     }
 
     public setDataSetter(dataName: string, setter: (data: any) => void) {
-        if (this.dataInfos.has(dataName)) {
-            this.dataInfos.get(dataName).setter = setter;
+        if (!this.dataInfos.has(dataName)) {
+            this.dataInfos.set(dataName, new dataInfo());
         }
+        this.dataInfos.get(dataName).setter = setter;
     }
 
     public setDataGetter(dataName: string, getter: () => any) {
-        if (this.dataInfos.has(dataName)) {
-            this.dataInfos.get(dataName).getter = getter;
+        if (!this.dataInfos.has(dataName)) {
+            this.dataInfos.set(dataName, new dataInfo());
         }
+        this.dataInfos.get(dataName).getter = getter;
     }
 
     public setData(dataName: string, value: any, callHandler: boolean = false) {
-        if (this.dataInfos.has(dataName)) {
-            this.dataInfos.get(dataName).setValue(value);
-            if (callHandler === true) {
-                this.callDataHandler(dataName);
-            }
+        if (!this.dataInfos.has(dataName)) {
+            this.dataInfos.set(dataName, new dataInfo());
+        }
+        this.dataInfos.get(dataName).setValue(value);
+        if (callHandler === true) {
+            this.callDataHandler(dataName);
         }
     }
 
     public addData(dataName: string, value: number, callHandler: boolean = false) {
-        if (this.dataInfos.has(dataName)) {
-            var curValue = this.getData(dataName);
-            if (curValue == null) {
-                curValue = 0;
-            }
-            if (type.isNumber(value) && type.isNumber(curValue)) {
-                this.dataInfos.get(dataName).setValue(curValue + value);
-                if (callHandler === true) {
-                    this.callDataHandler(dataName);
-                }
+        if (!this.dataInfos.has(dataName)) {
+            this.dataInfos.set(dataName, new dataInfo());
+        }
+        var curValue = this.getData(dataName);
+        if (curValue == null) {
+            curValue = 0;
+        }
+        if (type.isNumber(value) && type.isNumber(curValue)) {
+            this.dataInfos.get(dataName).setValue(curValue + value);
+            if (callHandler === true) {
+                this.callDataHandler(dataName);
             }
         }
     }

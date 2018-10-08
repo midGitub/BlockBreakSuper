@@ -47,5 +47,4 @@ class Main {
 	}
 }
 
-//激活启动类
 new Main();

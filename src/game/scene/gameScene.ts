@@ -1,12 +1,13 @@
 import scene from "../../framework/ui/scene";
 import log from "../../framework/common/log";
 import sceneManager from "../../framework/ui/sceneManager";
+import { ui } from "../../ui/layaMaxUI";
 
-export default class gameScene extends scene {
+export default class gameScene extends scene<ui.GameSceneUI> {
 
     public onEnter(): void {
         log.info("gameScene onEnter");
-        this.root["backButton"].on(Laya.Event.CLICK, this, function(event: Laya.Event){
+        this.root.backButton.on(Laya.Event.CLICK, this, function(event: Laya.Event){
             sceneManager.instance().loadScene(1);
         });
     }

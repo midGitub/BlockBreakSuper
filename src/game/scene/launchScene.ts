@@ -1,8 +1,9 @@
 import scene from "../../framework/ui/scene";
 import log from "../../framework/common/log";
 import sceneManager from "../../framework/ui/sceneManager";
+import { ui } from "../../ui/layaMaxUI";
 
-export default class launchScene extends scene {
+export default class launchScene extends scene<ui.LaunchSceneUI> {
 
     public onEnter(): void {
         log.info("launchScene onEnter");

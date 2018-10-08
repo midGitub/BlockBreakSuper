@@ -1,17 +1,23 @@
 import nodeHelper from "../util/nodeHelper";
 
-export default abstract class scene {
+export default abstract class scene<T extends Laya.Scene> {
 
-    public root: Laya.Scene = null;
-    public load(file: string, callback: ()=>any) {
-        this.root = new Laya.Scene();
-        Laya.Scene.load(file, Laya.Handler.create(this, function(){
-            this.root.loadScene(file);
-            this.root.open();
-            if(callback != null){
-                callback();
+    public root: T = null;
+    public load(t: any, callback: (succ: boolean) => any) {
+        this.root = t;
+        if (callback != null) {
+            if (this.root["_viewCreated"]) {
+                callback(true);
+            } else {
+                this.root.on("onViewCreated", this, function(){
+                    callback(true);
+                });
             }
-        }.bind(this)));
+        }
+    }
+
+    public open() {
+        this.root.open();
     }
 
     public destroy() {

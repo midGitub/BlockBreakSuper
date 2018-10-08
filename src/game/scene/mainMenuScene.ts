@@ -1,17 +1,15 @@
 import scene from "../../framework/ui/scene";
 import log from "../../framework/common/log";
 import sceneManager from "../../framework/ui/sceneManager";
+import { ui } from "../../ui/layaMaxUI";
 
-export default class mainMenuScene extends scene {
+export default class mainMenuScene extends scene<ui.MainMenuUI> {
 
     public onEnter(): void {
         log.info("mainMenuScene onEnter");
-        this.root["enterGameButton"].on(Laya.Event.CLICK, this, function(event: Laya.Event){
+        this.root.enterGameButton.on(Laya.Event.CLICK, this, function(event: Laya.Event){
             sceneManager.instance().loadScene(2);
         });
-        // this.root["enterGameButton"].clickHandler = Laya.Handler.create(this, function(){
-        //     sceneManager.instance().loadScene(2);
-        // });
     }
 
     public onExit(): void {

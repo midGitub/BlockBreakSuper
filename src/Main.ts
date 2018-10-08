@@ -3,6 +3,7 @@ import sceneManager from "./framework/ui/sceneManager";
 import launchScene from "./game/scene/launchScene";
 import mainMenuScene from "./game/scene/mainMenuScene";
 import gameScene from "./game/scene/gameScene";
+import { ui } from "./ui/layaMaxUI";
 
 class Main {
 	constructor() {
@@ -41,9 +42,11 @@ class Main {
 	}
 
 	registerScene(): void {
-		sceneManager.instance().registerScene<launchScene>(0, launchScene, "LaunchScene.json");
-		sceneManager.instance().registerScene<mainMenuScene>(1, mainMenuScene, "MainMenu.json");
-		sceneManager.instance().registerScene<gameScene>(2, gameScene, "GameScene.json");
+		var ma = new ui.MainMenuUI();
+		ma.open();
+		sceneManager.instance().registerScene<launchScene, ui.LaunchSceneUI>(0, launchScene, ui.LaunchSceneUI);
+		sceneManager.instance().registerScene<mainMenuScene, ui.MainMenuUI>(1, mainMenuScene, ui.MainMenuUI);
+		sceneManager.instance().registerScene<gameScene, ui.GameSceneUI>(2, gameScene, ui.GameSceneUI);
 	}
 
 	run(): void {

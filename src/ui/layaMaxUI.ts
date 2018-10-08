@@ -2,3 +2,28 @@
 import View=Laya.View;
 import Dialog=Laya.Dialog;
 import Scene=Laya.Scene;
+export module ui {
+    export class GameSceneUI extends Scene {
+		public backButton:Laya.Button;
+        constructor(){ super()}
+        createChildren():void {
+            super.createChildren();
+            this.loadScene("GameScene");
+        }
+    }
+    export class LaunchSceneUI extends Scene {
+        constructor(){ super()}
+        createChildren():void {
+            super.createChildren();
+            this.loadScene("LaunchScene");
+        }
+    }
+    export class MainMenuUI extends Scene {
+		public enterGameButton:Laya.Button;
+        constructor(){ super()}
+        createChildren():void {
+            super.createChildren();
+            this.loadScene("MainMenu");
+        }
+    }
+}

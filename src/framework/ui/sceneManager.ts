@@ -12,24 +12,15 @@ export default class sceneManager {
         return sceneManager.instanceObj;
     }
 
-    private currentScene: scene = null;
+    private currentScene: any = null;
     private sceneRegisterInfo = new Map<number, any>();
 
     public initialize() {
         this.sceneRegisterInfo.clear();
     }
 
-    public registerScene<S extends scene>(sceneId: number, sceneClass: { new(): S }, fileName: string) {
-        this.sceneRegisterInfo.set(sceneId, { class: sceneClass, file: fileName });
-    }
-
-    public preloadScene(sceneId: number, callback: () => any) {
-        var info = this.sceneRegisterInfo.get(sceneId);
-        if (info != null) {
-            if (callback != null) {
-                callback();
-            }
-        }
+    public registerScene<S extends scene<T>, T extends Laya.Scene>(sceneId: number, s: { new(): S }, t: { new(): T }) {
+        this.sceneRegisterInfo.set(sceneId, { s: s, t: t });
     }
 
     public loadScene(sceneId: number) {
@@ -41,9 +32,10 @@ export default class sceneManager {
             this.currentScene = null;
         }
 
-        this.currentScene = new info.class();
-        this.currentScene.load(info.file, function () {
+        this.currentScene = new info.s();
+        this.currentScene.load(new info.t(), function () {
             this.currentScene.onLoad();
+            this.currentScene.open();
             this.currentScene.onEnter();
         }.bind(this));
     }

@@ -14,10 +14,10 @@
     "child":[
         {
             "x":15,
-            "type":"Label",
-            "props":{"text":"加载界面","color":"#ef120e","centerY":0,"centerX":0,"anchorY":0.5,"anchorX":0.5},
+            "type":"Button",
+            "props":{"y":13,"x":522,"var":"backButton","stateNum":"2","skin":"hunter_btn_back.png"},
             "nodeParent":1,
-            "label":"Label",
+            "label":"backButton",
             "isDirectory":false,
             "isAniNode":true,
             "hasChild":false,

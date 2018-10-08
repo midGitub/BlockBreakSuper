@@ -12,15 +12,15 @@ export default class sceneManager {
         return sceneManager.instanceObj;
     }
 
-    private currentScene: any = null;
+    private currentScene: scene = null;
     private sceneRegisterInfo = new Map<number, any>();
 
     public initialize() {
         this.sceneRegisterInfo.clear();
     }
 
-    public registerScene<S extends scene>(sceneId: number, sceneClass: { new (): S }, fileName: string) {
-        this.sceneRegisterInfo.set(sceneId, {class: sceneClass, file: fileName});
+    public registerScene<S extends scene>(sceneId: number, sceneClass: { new(): S }, fileName: string) {
+        this.sceneRegisterInfo.set(sceneId, { class: sceneClass, file: fileName });
     }
 
     public preloadScene(sceneId: number, callback: () => any) {
@@ -42,9 +42,10 @@ export default class sceneManager {
         }
 
         this.currentScene = new info.class();
-        this.currentScene.load(info.file);
-        this.currentScene.onLoad();
-        this.currentScene.onEnter();
+        this.currentScene.load(info.file, function () {
+            this.currentScene.onLoad();
+            this.currentScene.onEnter();
+        }.bind(this));
     }
 
     public runningScene(): any {

@@ -1,6 +1,8 @@
 import GameConfig from "./GameConfig";
 import sceneManager from "./framework/ui/sceneManager";
 import launchScene from "./game/scene/launchScene";
+import mainMenuScene from "./game/scene/mainMenuScene";
+import gameScene from "./game/scene/gameScene";
 
 class Main {
 	constructor() {
@@ -39,7 +41,9 @@ class Main {
 	}
 
 	registerScene(): void {
-		sceneManager.instance().registerScene<launchScene>(0, launchScene, "launchScene.json");
+		sceneManager.instance().registerScene<launchScene>(0, launchScene, "LaunchScene.json");
+		sceneManager.instance().registerScene<mainMenuScene>(1, mainMenuScene, "MainMenu.json");
+		sceneManager.instance().registerScene<gameScene>(2, gameScene, "GameScene.json");
 	}
 
 	run(): void {

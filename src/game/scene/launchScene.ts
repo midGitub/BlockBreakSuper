@@ -1,10 +1,12 @@
 import scene from "../../framework/ui/scene";
 import log from "../../framework/common/log";
+import sceneManager from "../../framework/ui/sceneManager";
 
 export default class launchScene extends scene {
 
     public onEnter(): void {
         log.info("launchScene onEnter");
+        sceneManager.instance().loadScene(1);
     }
 
     public onExit(): void {

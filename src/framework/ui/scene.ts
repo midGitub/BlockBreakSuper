@@ -3,10 +3,15 @@ import nodeHelper from "../util/nodeHelper";
 export default abstract class scene {
 
     public root: Laya.Scene = null;
-    public load(file: string) {
+    public load(file: string, callback: ()=>any) {
         this.root = new Laya.Scene();
-        this.root.loadScene(file);
-        this.root.open();
+        Laya.Scene.load(file, Laya.Handler.create(this, function(){
+            this.root.loadScene(file);
+            this.root.open();
+            if(callback != null){
+                callback();
+            }
+        }.bind(this)));
     }
 
     public destroy() {

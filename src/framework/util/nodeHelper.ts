@@ -99,6 +99,5 @@ export default class nodeHelper {
     public static removeAllHandlers(node: any) {
         dataManager.instance().removeAllDataHandler(node);
         Laya.timer.clearAll(node);
-        (<any>Laya).scaleTimer.clearAll(node);
     }
 }

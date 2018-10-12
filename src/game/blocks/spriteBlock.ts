@@ -48,6 +48,10 @@ export class SpriteBlock implements Block {
 
     }
 
+    public sendMessage(msg: string, params: any){
+
+    }
+
     public start() {
         this.setEnable(true);
         for (var i = 0; i < this.features.length; i++) {

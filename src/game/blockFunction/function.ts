@@ -1,6 +1,7 @@
 import { Block } from "../blocks/block";
+import { BlockEvent } from "../blocks/blockEvent";
 
-export interface Feature {
+export interface BlockFunction {
     instance: Block;
     isEnable: boolean;
 
@@ -12,4 +13,5 @@ export interface Feature {
     onPause();
     onStop();
     onDestroy();
+    onEvent(event: BlockEvent, data: any);
 }

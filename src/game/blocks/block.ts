@@ -1,10 +1,14 @@
-import { Feature } from "../features/feature";
+import { BlockEvent } from "./blockEvent";
+import { BlockFunction } from "../blockFunction/function";
 
-export interface Block {
+export interface BlockEventSender {
+    fireEvent(event: BlockEvent, data: any);
+}
+
+export interface Block extends BlockEventSender{
     build(instace: any, props: any);
-    addFeature(feature: any);
-    removeFeature(feature: any);
-    sendMessage(msg: string, params: any);
+    addFunction(blockFunctionClass: any);
+    removeFunction(blockFunctionClass: any);
     start();
     update(dt: number);
     stop();

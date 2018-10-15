@@ -1,10 +1,11 @@
 import { Block } from "./block";
-import { Feature } from "../features/feature";
+import { BlockEvent } from "./blockEvent";
+import { BlockFunction } from "../blockFunction/function";
 
 export class SpriteBlock implements Block {
 
     private instance: Laya.Sprite = null;
-    private features: Array<Feature> = new Array<Feature>();
+    private functions: Array<BlockFunction> = new Array<BlockFunction>();
     private isEnable: boolean = false;
 
     public build(instace: any, props: any) {
@@ -16,18 +17,18 @@ export class SpriteBlock implements Block {
         }
     }
 
-    public addFeature(feature: any) {
+    public addFunction(blockFunctionClass: any) {
         // 重复添加会删除之前的脚本
-        this.removeFeature(feature);
+        this.removeFunction(blockFunctionClass);
 
-        var f = new feature() as Feature;
+        var f = new blockFunctionClass() as BlockFunction;
         f.onAwake(this);
-        this.features.push(f);
+        this.functions.push(f);
     }
 
-    public removeFeature(feature: any) {
-        this.features = this.features.filter(function (v: Feature, i: number, array) {
-            if (v instanceof feature) {
+    public removeFunction(blockFunctionClass: any) {
+        this.functions = this.functions.filter(function (v: BlockFunction, i: number, array) {
+            if (v instanceof blockFunctionClass) {
                 v.onStop();
                 v.onDestroy();
                 return false;
@@ -38,45 +39,47 @@ export class SpriteBlock implements Block {
 
     public setEnable(enable: boolean) {
         this.isEnable = true;
-        for (var i = 0; i < this.features.length; i++) {
+        for (var i = 0; i < this.functions.length; i++) {
             if (enable) {
-                this.features[i].onEnabel();
+                this.functions[i].onEnabel();
             } else {
-                this.features[i].onDisable();
+                this.functions[i].onDisable();
             }
         }
 
     }
-
-    public sendMessage(msg: string, params: any){
-
+    
+    public fireEvent(event: BlockEvent, data: any) {
+        for(var i = 0; i < this.functions.length; i++){
+            this.functions[i].onEvent(event, data);
+        }
     }
 
     public start() {
         this.setEnable(true);
-        for (var i = 0; i < this.features.length; i++) {
-            this.features[i].onStart();
+        for (var i = 0; i < this.functions.length; i++) {
+            this.functions[i].onStart();
         }
     }
 
     public stop() {
         this.setEnable(false);
-        for (var i = 0; i < this.features.length; i++) {
-            this.features[i].onStop();
+        for (var i = 0; i < this.functions.length; i++) {
+            this.functions[i].onStop();
         }
     }
 
     public update(dt: number) {
         if (this.isEnable) {
-            for (var i = 0; i < this.features.length; i++) {
-                this.features[i].onUpdate(dt);
+            for (var i = 0; i < this.functions.length; i++) {
+                this.functions[i].onUpdate(dt);
             }
         }
     }
 
     public destory() {
-        for (var i = 0; i < this.features.length; i++) {
-            this.features[i].onDestroy();
+        for (var i = 0; i < this.functions.length; i++) {
+            this.functions[i].onDestroy();
         }
     }
 }

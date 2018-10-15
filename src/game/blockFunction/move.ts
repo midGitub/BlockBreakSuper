@@ -1,7 +1,8 @@
-import { Feature } from "./feature";
 import { Block } from "../blocks/block";
+import { BlockFunction } from "./function";
+import { BlockEvent } from "../blocks/blockEvent";
 
-export class Move implements Feature {
+export class Move implements BlockFunction {
     
     instance: Block;
     isEnable: boolean;
@@ -28,5 +29,9 @@ export class Move implements Feature {
     }
 
     public onDestroy() {
+    }
+
+    public onEvent(event: BlockEvent, data: any) {
+        throw new Error("Method not implemented.");
     }
 }

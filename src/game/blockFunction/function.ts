@@ -9,7 +9,7 @@ export interface BlockFunction {
     onStart();
     onEnabel();
     onDisable();
-    onUpdate(dt: number);
+    onUpdate(dt: number): boolean;
     onPause();
     onStop();
     onDestroy();

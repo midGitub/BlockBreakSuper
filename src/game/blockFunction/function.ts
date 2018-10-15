@@ -2,7 +2,7 @@ import { Block } from "../blocks/block";
 import { BlockEvent } from "../blocks/blockEvent";
 
 export interface BlockFunction {
-    instance: Block;
+    owner: Block;
     isEnable: boolean;
 
     onAwake(instance: Block);

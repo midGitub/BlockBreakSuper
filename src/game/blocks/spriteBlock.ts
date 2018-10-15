@@ -82,4 +82,12 @@ export class SpriteBlock implements Block {
             this.functions[i].onDestroy();
         }
     }
+
+    public setPosition(x: number, y: number) {
+        this.instance.pos(x, y, true);
+    }
+
+    public getPosition(): Laya.Vector2 {
+        return new Laya.Vector2(this.instance.x, this.instance.y);
+    }
 }

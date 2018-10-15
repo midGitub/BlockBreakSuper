@@ -3,12 +3,12 @@ import { Block } from "../blocks/block";
 import { BlockEvent } from "../blocks/blockEvent";
 
 export class BaseFunction implements BlockFunction {
-    public instance: Block = null;
+    public owner: Block = null;
     public isEnable: boolean = null;
     public updateTime: number = 0;
 
     onAwake(instance: Block) {
-        this.instance = instance;
+        this.owner = instance;
         this.isEnable = false;
     }
 

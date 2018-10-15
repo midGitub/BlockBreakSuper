@@ -13,4 +13,6 @@ export interface Block extends BlockEventSender{
     update(dt: number);
     stop();
     destory();
+    setPosition(x: number, y: number);
+    getPosition(): Laya.Vector2;
 }

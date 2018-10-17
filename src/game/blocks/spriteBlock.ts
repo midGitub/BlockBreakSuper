@@ -2,14 +2,29 @@ import { Block } from "./block";
 import { BlockEvent } from "./blockEvent";
 import { BlockFunction } from "../blockFunction/function";
 
+class BlockEventData{
+    public event: BlockEvent;
+    public data: any;
+
+    constructor(event: BlockEvent, data: any){
+        this.event = event;
+        this.data = data;
+    }
+}
+
 export class SpriteBlock implements Block {
 
     private instance: Laya.Sprite = null;
     private functions: Array<BlockFunction> = new Array<BlockFunction>();
     private isEnable: boolean = false;
+    private eventQueue: Array<BlockEventData> = new Array<BlockEventData>();
 
     public build(instace: any, props: any) {
         this.instance = instace;
+        this.functions.length = 0;
+        this.isEnable = false;
+        this.eventQueue.length = 0;
+
         if (this.instance != null) {
             for (var prop in props) {
                 this.instance[prop] = props[prop];
@@ -49,9 +64,17 @@ export class SpriteBlock implements Block {
 
     }
     
-    public fireEvent(event: BlockEvent, data: any) {
-        for(var i = 0; i < this.functions.length; i++){
-            this.functions[i].onEvent(event, data);
+    public event(event: BlockEvent, data: any) {
+        this.eventQueue.push(new BlockEventData(event, data));
+    }
+
+    private fireEvent() {
+        var eventData = this.eventQueue.pop();
+        while(eventData != null){
+            for(var i = 0; i < this.functions.length; i++){
+                this.functions[i].onEvent(eventData.event, eventData.data);
+            }
+            eventData = this.eventQueue.pop();
         }
     }
 
@@ -75,12 +98,17 @@ export class SpriteBlock implements Block {
                 this.functions[i].onUpdate(dt);
             }
         }
+        this.fireEvent();
     }
 
     public destory() {
         for (var i = 0; i < this.functions.length; i++) {
             this.functions[i].onDestroy();
         }
+    }
+
+    public onCollision(target: any) {
+        this.event(BlockEvent.Collision, target);
     }
 
     public setPosition(x: number, y: number) {

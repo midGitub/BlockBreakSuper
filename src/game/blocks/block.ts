@@ -2,7 +2,7 @@ import { BlockEvent } from "./blockEvent";
 import { BlockFunction } from "../blockFunction/function";
 
 export interface BlockEventSender {
-    fireEvent(event: BlockEvent, data: any);
+    event(event: BlockEvent, data: any);
 }
 
 export interface Block extends BlockEventSender{
@@ -13,6 +13,7 @@ export interface Block extends BlockEventSender{
     update(dt: number);
     stop();
     destory();
+    onCollision(target: any);
     setPosition(x: number, y: number);
     getPosition(): Laya.Vector2;
 }

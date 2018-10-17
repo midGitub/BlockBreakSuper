@@ -105,6 +105,7 @@ export class SpriteBlock implements Block {
         for (var i = 0; i < this.functions.length; i++) {
             this.functions[i].onDestroy();
         }
+        this.instance.removeSelf();
     }
 
     public onCollision(target: any) {

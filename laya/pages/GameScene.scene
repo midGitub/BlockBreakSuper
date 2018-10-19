@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"Scene",
-    "selectedBox":8,
-    "selecteID":7,
+    "selectedBox":3,
+    "selecteID":84,
     "props":{"width":640,"sceneColor":"#000000","height":1136},
     "nodeParent":-1,
     "label":"Scene",
@@ -43,119 +43,441 @@
                     "props":{"y":0,"x":0,"name":"Board"},
                     "nodeParent":3,
                     "label":"Board",
-                    "isOpen":true,
+                    "isOpen":false,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
                     "compId":8,
                     "child":[
                         {
-                            "x":45,
-                            "type":"Rect",
-                            "props":{"width":4,"lineWidth":1,"height":600,"fillColor":"#ff0000"},
+                            "type":"Sprite",
+                            "props":{"y":0,"x":7,"width":600,"texture":"rect1.png"},
                             "nodeParent":8,
-                            "label":"Rect",
+                            "label":"Sprite",
                             "isOpen":null,
                             "isDirectory":true,
                             "isAniNode":true,
                             "hasChild":true,
-                            "compId":4,
+                            "compId":43,
                             "child":[
+                                {
+                                    "type":"BoxCollider",
+                                    "switchAble":true,
+                                    "removeAble":true,
+                                    "props":{"width":600,"url":"D:/dev_tools/LayaAirIDE_2.0beta/BoxCollider","restitution":1,"height":15,"friction":0},
+                                    "nodeParent":43,
+                                    "label":"BoxCollider",
+                                    "isDirectory":false,
+                                    "isAniNode":true,
+                                    "hasChild":false,
+                                    "compId":56,
+                                    "child":[
+                                        ]
+                                },
                                 {
                                     "type":"RigidBody",
                                     "switchAble":true,
                                     "removeAble":true,
                                     "props":{"type":"static"},
-                                    "nodeParent":4,
+                                    "nodeParent":43,
                                     "label":"RigidBody",
                                     "isDirectory":false,
                                     "isAniNode":true,
                                     "hasChild":false,
-                                    "compId":9,
+                                    "compId":57,
                                     "child":[
                                         ]
                                 }]
                         },
                         {
-                            "x":45,
-                            "type":"Rect",
-                            "props":{"y":0,"x":600,"width":4,"lineWidth":1,"height":600,"fillColor":"#ff0000"},
+                            "type":"Sprite",
+                            "props":{"y":600,"x":7,"width":600,"texture":"rect1.png"},
                             "nodeParent":8,
-                            "label":"Rect",
+                            "label":"Sprite",
                             "isOpen":null,
                             "isDirectory":true,
                             "isAniNode":true,
                             "hasChild":true,
-                            "compId":5,
+                            "compId":44,
                             "child":[
+                                {
+                                    "type":"BoxCollider",
+                                    "switchAble":true,
+                                    "removeAble":true,
+                                    "props":{"width":600,"url":"D:/dev_tools/LayaAirIDE_2.0beta/BoxCollider","restitution":1,"height":15,"friction":0},
+                                    "nodeParent":44,
+                                    "label":"BoxCollider",
+                                    "isDirectory":false,
+                                    "isAniNode":true,
+                                    "hasChild":false,
+                                    "compId":58,
+                                    "child":[
+                                        ]
+                                },
                                 {
                                     "type":"RigidBody",
                                     "switchAble":true,
                                     "removeAble":true,
-                                    "props":{"url":"D:/dev_tools/LayaAirIDE_2.0beta/RigidBody","type":"static"},
-                                    "nodeParent":5,
+                                    "props":{"type":"static"},
+                                    "nodeParent":44,
                                     "label":"RigidBody",
                                     "isDirectory":false,
                                     "isAniNode":true,
                                     "hasChild":false,
-                                    "compId":11,
+                                    "compId":59,
                                     "child":[
                                         ]
                                 }]
                         },
                         {
-                            "x":45,
-                            "type":"Rect",
-                            "props":{"y":0,"x":0,"width":600,"lineWidth":1,"height":4,"fillColor":"#ff0000"},
+                            "type":"Sprite",
+                            "props":{"y":0,"x":7,"width":600,"texture":"rect1.png","rotation":90},
                             "nodeParent":8,
-                            "label":"Rect",
+                            "label":"Sprite",
                             "isOpen":null,
                             "isDirectory":true,
                             "isAniNode":true,
                             "hasChild":true,
-                            "compId":6,
+                            "compId":45,
                             "child":[
+                                {
+                                    "type":"BoxCollider",
+                                    "switchAble":true,
+                                    "removeAble":true,
+                                    "props":{"width":600,"url":"D:/dev_tools/LayaAirIDE_2.0beta/BoxCollider","restitution":1,"height":15,"friction":0},
+                                    "nodeParent":45,
+                                    "label":"BoxCollider",
+                                    "isDirectory":false,
+                                    "isAniNode":true,
+                                    "hasChild":false,
+                                    "compId":60,
+                                    "child":[
+                                        ]
+                                },
                                 {
                                     "type":"RigidBody",
                                     "switchAble":true,
                                     "removeAble":true,
-                                    "props":{"url":"D:/dev_tools/LayaAirIDE_2.0beta/RigidBody","type":"static"},
-                                    "nodeParent":6,
+                                    "props":{"type":"static"},
+                                    "nodeParent":45,
                                     "label":"RigidBody",
                                     "isDirectory":false,
                                     "isAniNode":true,
                                     "hasChild":false,
-                                    "compId":12,
+                                    "compId":61,
                                     "child":[
                                         ]
                                 }]
                         },
                         {
-                            "x":45,
-                            "type":"Rect",
-                            "props":{"y":600,"x":0,"width":604,"lineWidth":1,"height":4,"fillColor":"#ff0000"},
+                            "type":"Sprite",
+                            "props":{"y":0,"x":606,"width":600,"texture":"rect1.png","rotation":90},
                             "nodeParent":8,
-                            "label":"Rect",
+                            "label":"Sprite",
                             "isOpen":null,
                             "isDirectory":true,
                             "isAniNode":true,
                             "hasChild":true,
-                            "compId":7,
+                            "compId":46,
                             "child":[
+                                {
+                                    "type":"BoxCollider",
+                                    "switchAble":true,
+                                    "removeAble":true,
+                                    "props":{"width":600,"url":"D:/dev_tools/LayaAirIDE_2.0beta/BoxCollider","restitution":1,"height":15,"friction":0},
+                                    "nodeParent":46,
+                                    "label":"BoxCollider",
+                                    "isDirectory":false,
+                                    "isAniNode":true,
+                                    "hasChild":false,
+                                    "compId":62,
+                                    "child":[
+                                        ]
+                                },
                                 {
                                     "type":"RigidBody",
                                     "switchAble":true,
                                     "removeAble":true,
-                                    "props":{"url":"D:/dev_tools/LayaAirIDE_2.0beta/RigidBody","type":"static"},
-                                    "nodeParent":7,
+                                    "props":{"type":"static"},
+                                    "nodeParent":46,
                                     "label":"RigidBody",
                                     "isDirectory":false,
                                     "isAniNode":true,
                                     "hasChild":false,
-                                    "compId":13,
+                                    "compId":63,
                                     "child":[
                                         ]
                                 }]
+                        }]
+                },
+                {
+                    "x":30,
+                    "type":"Box",
+                    "props":{"y":122,"x":41,"name":"Block"},
+                    "nodeParent":3,
+                    "label":"Block",
+                    "isOpen":false,
+                    "isDirectory":true,
+                    "isAniNode":true,
+                    "hasChild":true,
+                    "compId":26,
+                    "child":[
+                        {
+                            "type":"Sprite",
+                            "props":{"texture":"rect.png"},
+                            "nodeParent":26,
+                            "label":"Sprite",
+                            "isOpen":null,
+                            "isDirectory":true,
+                            "isAniNode":true,
+                            "hasChild":true,
+                            "compId":69,
+                            "child":[
+                                {
+                                    "type":"BoxCollider",
+                                    "switchAble":true,
+                                    "removeAble":true,
+                                    "props":{"width":68,"url":"D:/dev_tools/LayaAirIDE_2.0beta/BoxCollider","restitution":1,"height":35,"friction":0},
+                                    "nodeParent":69,
+                                    "label":"BoxCollider",
+                                    "isDirectory":false,
+                                    "isAniNode":true,
+                                    "hasChild":false,
+                                    "compId":70,
+                                    "child":[
+                                        ]
+                                },
+                                {
+                                    "type":"RigidBody",
+                                    "switchAble":true,
+                                    "removeAble":true,
+                                    "props":{"type":"static"},
+                                    "nodeParent":69,
+                                    "label":"RigidBody",
+                                    "isDirectory":false,
+                                    "isAniNode":true,
+                                    "hasChild":false,
+                                    "compId":71,
+                                    "child":[
+                                        ]
+                                }]
+                        },
+                        {
+                            "type":"Sprite",
+                            "props":{"y":78,"x":196,"texture":"rect.png"},
+                            "nodeParent":26,
+                            "label":"Sprite",
+                            "isOpen":null,
+                            "isDirectory":true,
+                            "isAniNode":true,
+                            "hasChild":true,
+                            "compId":72,
+                            "child":[
+                                {
+                                    "type":"BoxCollider",
+                                    "switchAble":true,
+                                    "removeAble":true,
+                                    "props":{"width":68,"url":"D:/dev_tools/LayaAirIDE_2.0beta/BoxCollider","restitution":1,"height":35,"friction":0},
+                                    "nodeParent":72,
+                                    "label":"BoxCollider",
+                                    "isDirectory":false,
+                                    "isAniNode":true,
+                                    "hasChild":false,
+                                    "compId":73,
+                                    "child":[
+                                        ]
+                                },
+                                {
+                                    "type":"RigidBody",
+                                    "switchAble":true,
+                                    "removeAble":true,
+                                    "props":{"type":"static"},
+                                    "nodeParent":72,
+                                    "label":"RigidBody",
+                                    "isDirectory":false,
+                                    "isAniNode":true,
+                                    "hasChild":false,
+                                    "compId":74,
+                                    "child":[
+                                        ]
+                                }]
+                        },
+                        {
+                            "type":"Sprite",
+                            "props":{"y":0,"x":286,"texture":"rect.png"},
+                            "nodeParent":26,
+                            "label":"Sprite",
+                            "isOpen":null,
+                            "isDirectory":true,
+                            "isAniNode":true,
+                            "hasChild":true,
+                            "compId":75,
+                            "child":[
+                                {
+                                    "type":"BoxCollider",
+                                    "switchAble":true,
+                                    "removeAble":true,
+                                    "props":{"width":68,"url":"D:/dev_tools/LayaAirIDE_2.0beta/BoxCollider","restitution":1,"height":35,"friction":0},
+                                    "nodeParent":75,
+                                    "label":"BoxCollider",
+                                    "isDirectory":false,
+                                    "isAniNode":true,
+                                    "hasChild":false,
+                                    "compId":76,
+                                    "child":[
+                                        ]
+                                },
+                                {
+                                    "type":"RigidBody",
+                                    "switchAble":true,
+                                    "removeAble":true,
+                                    "props":{"type":"static"},
+                                    "nodeParent":75,
+                                    "label":"RigidBody",
+                                    "isDirectory":false,
+                                    "isAniNode":true,
+                                    "hasChild":false,
+                                    "compId":77,
+                                    "child":[
+                                        ]
+                                }]
+                        },
+                        {
+                            "type":"Sprite",
+                            "props":{"y":2.5,"x":422,"texture":"rect.png"},
+                            "nodeParent":26,
+                            "label":"Sprite",
+                            "isOpen":null,
+                            "isDirectory":true,
+                            "isAniNode":true,
+                            "hasChild":true,
+                            "compId":78,
+                            "child":[
+                                {
+                                    "type":"BoxCollider",
+                                    "switchAble":true,
+                                    "removeAble":true,
+                                    "props":{"width":68,"url":"D:/dev_tools/LayaAirIDE_2.0beta/BoxCollider","restitution":1,"height":35,"friction":0},
+                                    "nodeParent":78,
+                                    "label":"BoxCollider",
+                                    "isDirectory":false,
+                                    "isAniNode":true,
+                                    "hasChild":false,
+                                    "compId":79,
+                                    "child":[
+                                        ]
+                                },
+                                {
+                                    "type":"RigidBody",
+                                    "switchAble":true,
+                                    "removeAble":true,
+                                    "props":{"type":"static"},
+                                    "nodeParent":78,
+                                    "label":"RigidBody",
+                                    "isDirectory":false,
+                                    "isAniNode":true,
+                                    "hasChild":false,
+                                    "compId":80,
+                                    "child":[
+                                        ]
+                                }]
+                        }]
+                },
+                {
+                    "x":30,
+                    "type":"Sprite",
+                    "props":{"y":417,"x":266,"texture":"circle.png","scaleY":1.5,"scaleX":1.5},
+                    "nodeParent":3,
+                    "label":"Sprite",
+                    "isOpen":null,
+                    "isDirectory":true,
+                    "isAniNode":true,
+                    "hasChild":true,
+                    "compId":81,
+                    "child":[
+                        {
+                            "type":"CircleCollider",
+                            "switchAble":true,
+                            "removeAble":true,
+                            "props":{"url":"D:/dev_tools/LayaAirIDE_2.0beta/CircleCollider","restitution":1,"radius":10.5,"friction":0},
+                            "nodeParent":81,
+                            "label":"CircleCollider",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":82,
+                            "child":[
+                                ]
+                        },
+                        {
+                            "type":"RigidBody",
+                            "switchAble":true,
+                            "removeAble":true,
+                            "props":{"linearVelocity":[10,10],"gravityScale":0},
+                            "nodeParent":81,
+                            "label":"RigidBody",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":83,
+                            "child":[
+                                ]
+                        }]
+                },
+                {
+                    "x":30,
+                    "type":"Sprite",
+                    "props":{"y":563,"x":156,"width":200,"var":"boardObj","texture":"rect.png","height":20},
+                    "nodeParent":3,
+                    "label":"boardObj",
+                    "isOpen":null,
+                    "isDirectory":true,
+                    "isAniNode":true,
+                    "hasChild":true,
+                    "compId":84,
+                    "child":[
+                        {
+                            "type":"BoxCollider",
+                            "switchAble":true,
+                            "removeAble":true,
+                            "props":{"width":200,"url":"D:/dev_tools/LayaAirIDE_2.0beta/BoxCollider","restitution":1,"height":20,"friction":1,"density":10},
+                            "nodeParent":84,
+                            "label":"BoxCollider",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":85,
+                            "child":[
+                                ]
+                        },
+                        {
+                            "type":"RigidBody",
+                            "switchAble":true,
+                            "removeAble":true,
+                            "props":{"type":"static"},
+                            "nodeParent":84,
+                            "label":"RigidBody",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":86,
+                            "child":[
+                                ]
+                        },
+                        {
+                            "type":"Script",
+                            "switchAble":true,
+                            "source":"src/game/board.ts",
+                            "removeAble":true,
+                            "props":{},
+                            "nodeParent":84,
+                            "label":"board",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":87,
+                            "child":[
+                                ]
                         }]
                 }]
         }],

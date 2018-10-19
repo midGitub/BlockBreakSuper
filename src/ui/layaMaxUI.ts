@@ -5,6 +5,7 @@ import Scene=Laya.Scene;
 export module ui {
     export class GameSceneUI extends Scene {
 		public backButton:Laya.Button;
+		public boardObj:Laya.Sprite;
         constructor(){ super()}
         createChildren():void {
             super.createChildren();
